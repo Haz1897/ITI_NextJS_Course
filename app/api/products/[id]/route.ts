@@ -30,7 +30,6 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
   try {
     await connectToDB();
     const session = await auth();
-    console.log(session);
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
